@@ -8,13 +8,12 @@ import postRoutes from "./routes/posts.js";
 const app = express();
 dotenv.config();
 
-// svaka ruta u postRoutes ce poceti s /posts, a ne s /
-app.use("/posts", postRoutes);
-
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
+// svaka ruta u postRoutes ce poceti s /posts, a ne s /
+app.use("/posts", postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
