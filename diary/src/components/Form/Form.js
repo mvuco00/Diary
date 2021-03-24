@@ -7,7 +7,6 @@ const Form = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     message: "",
     tags: "",
@@ -27,16 +26,7 @@ const Form = () => {
         className={`${classes.root} ${classes.form}`}
       >
         <Typography variant="h6">What happened today?</Typography>
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
+
         <TextField
           name="title"
           variant="outlined"
@@ -48,7 +38,7 @@ const Form = () => {
         <TextField
           name="message"
           variant="outlined"
-          label="message"
+          label="dear diary..."
           fullWidth
           value={postData.message}
           onChange={(e) =>
@@ -58,7 +48,6 @@ const Form = () => {
         <Button
           className={classes.buttonSubmit}
           variant="contained"
-          color="primary"
           type="submit"
           size="large"
           fullWidth
@@ -66,11 +55,10 @@ const Form = () => {
           submit
         </Button>
         <Button
-          className={classes.buttonSubmit}
+          className={classes.buttonReset}
           variant="contained"
-          color="secondary"
           onClick={clear}
-          size="small"
+          size="large"
           fullWidth
         >
           reset

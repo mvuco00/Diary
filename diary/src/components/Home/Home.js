@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-
-import { Container, Grid, AppBar, Grow, Typography } from "@material-ui/core";
+import { Container, Grid, Grow, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
 import useStyles from "./styles";
-import logo from "../../images/journal.png";
 import { getPosts } from "../../store/actions/posts";
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   const classes = useStyles();
@@ -18,32 +17,11 @@ const Home = () => {
 
   return (
     <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <img
-          src={logo}
-          alt="sun-and-moon"
-          className={classes.image}
-          height="60"
-        />
-        <Typography className={classes.heading} variant="h2" align="center">
-          Diary
-        </Typography>
-      </AppBar>
+      <Navbar />
       <Grow in>
         <Container>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={4}
-          >
-            <Grid item xs={12} sm={7}>
-              <Posts />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form />
-            </Grid>
-          </Grid>
+          <Form />
+          <Posts />
         </Container>
       </Grow>
     </Container>

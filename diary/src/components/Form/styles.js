@@ -17,6 +17,15 @@ export default makeStyles((theme) => ({
   },
 
   buttonSubmit: {
-    marginBottom: 10,
+    fontWeight: "bold",
+    backgroundColor: "lightgreen",
+    color: "black",
+    margin: 8,
+  },
+  buttonReset: {
+    fontWeight: "bold",
+    backgroundColor: "lightgray",
+    color: "black",
+    margin: 8,
   },
 }));
