@@ -5,7 +5,7 @@ import useStyles from "./styles";
 const Posts = () => {
   const classes = useStyles();
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
+  posts.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
   return (
     <div className={classes.posts}>
       {posts.map((post) => (

@@ -8,7 +8,7 @@ import Box from "@material-ui/core/Box";
 
 const Post = ({ post }) => {
   const classes = useStyles();
-  console.log(post);
+
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -20,9 +20,8 @@ const Post = ({ post }) => {
           >
             {post.title}
           </Typography>
-          <Box> {moment(post.createdAt).fromNow()}</Box>
+          <Box> {moment(post.createdAt).format("DD/MM/YYYY")}</Box>
         </Box>
-
         <CardContent>{post.message}</CardContent>
       </CardContent>
     </Card>
