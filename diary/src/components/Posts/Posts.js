@@ -4,17 +4,13 @@ import Post from "./Post/Post";
 import useStyles from "./styles";
 const Posts = () => {
   const classes = useStyles();
-
   const posts = useSelector((state) => state.posts);
   console.log(posts);
   return (
-    <div>
-      <div>
-        <Post />
-      </div>
-      <div>
-        <Post />
-      </div>
+    <div className={classes.posts}>
+      {posts.map((post) => (
+        <Post key={post._id} post={post} />
+      ))}
     </div>
   );
 };
