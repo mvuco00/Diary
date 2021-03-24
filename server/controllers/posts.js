@@ -1,5 +1,7 @@
 // sva logika za rute da ne bude pretrpano
 import PostMessage from "../models/postMessage.js";
+import mongoose from "mongoose";
+
 export const getPosts = async (req, res) => {
   try {
     const postMessages = await PostMessage.find();
@@ -20,4 +22,14 @@ export const createPost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
+};
+
+export const deletePost = async (req, res) => {
+  const { id } = req.params;
+  // provjera je li dobiveni id stvarno mongoose objekt
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  await PostMessage.findByIdAndRemove(id);
+  res.json({ message: "Post deleted sucessfully" });
 };

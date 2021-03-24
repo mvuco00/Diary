@@ -27,4 +27,12 @@ export default makeStyles({
     color: "#031521",
     fontStyle: "italic",
   },
+
+  actions: {
+    alignSelf: "flex-end",
+  },
+
+  clearIcon: {
+    color: "#C70039",
+  },
 });

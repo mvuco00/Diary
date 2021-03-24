@@ -1,13 +1,21 @@
 import React from "react";
 import moment from "moment";
+import { useDispatch } from "react-redux";
 import useStyles from "./styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Typography,
+  Box,
+  Button,
+} from "@material-ui/core";
+import ClearIcon from "@material-ui/icons/Clear";
+import { deletePost } from "../../../store/actions/posts";
 
 const Post = ({ post }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
     <Card className={classes.card}>
@@ -24,6 +32,11 @@ const Post = ({ post }) => {
         </Box>
         <CardContent>{post.message}</CardContent>
       </CardContent>
+      <CardActions className={classes.actions}>
+        <Button size="small" onClick={() => dispatch(deletePost(post._id))}>
+          <ClearIcon className={classes.clearIcon} />
+        </Button>
+      </CardActions>
     </Card>
   );
 };

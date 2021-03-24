@@ -4,6 +4,8 @@ const reducer = (state = [], action) => {
       return action.payload;
     case "CREATE_POST":
       return [...state, action.payload];
+    case "DELETE":
+      return state.filter((post) => post._id !== action.payload);
     default:
       return state;
   }
